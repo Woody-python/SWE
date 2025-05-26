@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+
+{% block title %}Home - Library Website{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Book List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in books %}
+        <tr>
+          <td>{{ book['title'] }}</td>
+          <td>{{ book['author'] }}</td>
+          <td>{{ book['genre'] }}</td>
+          <td><a href="/borrow?title={{ book['title'] }}">Borrow</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% endblock %}
